@@ -108,7 +108,7 @@ function MapPage() {
           height="100%"
           frameBorder="0"
           style={{ border: 0 }}
-          src={`https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_GOOGLE_MAPS_API_KEY&q=${encodeURIComponent(`${active.name}, ${active.state}, India`)}&zoom=12&maptype=satellite`}
+          src={`https://maps.google.com/maps?q=${encodeURIComponent(`${active.name}, ${active.state}, India`)}&t=k&z=12&ie=UTF8&iwloc=&output=embed`}
           allowFullScreen
           className="w-full h-full grayscale-[0.2] contrast-[1.1]"
           title={active.name}
