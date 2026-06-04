@@ -8,6 +8,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'google-site-verification', content: 'n6zspjYtTG8Oau-8yky17_dlrormZXNVGPH41fy9-jw' },
       { title: "HiddenIndia — Discover India's Anti-Tourist Gems" },
       {
         name: 'description',
