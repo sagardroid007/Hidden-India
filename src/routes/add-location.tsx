@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { MapPin, Compass, Anchor, CheckCircle2, ChevronRight, ScrollText, Crosshair, ThermometerSun, CloudRain } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
+import locations, { type Location } from '@/data/locations'
 
 export const Route = createFileRoute('/add-location')({
   component: AddLocationPage,
@@ -10,50 +11,79 @@ export const Route = createFileRoute('/add-location')({
 function AddLocationPage() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    state: '',
+    description: '',
+    image: '',
+    season: '',
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate API call
+    
     setTimeout(() => {
+      const newLoc: Location = {
+        id: formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + Date.now(),
+        name: formData.name,
+        state: formData.state,
+        region: 'Unknown',
+        image: formData.image || 'https://picsum.photos/seed/new/800/600',
+        heroImage: formData.image || 'https://picsum.photos/seed/new-hero/1400/700',
+        shortDescription: formData.description.slice(0, 150) + (formData.description.length > 150 ? '...' : ''),
+        fullDescription: formData.description,
+        tags: ['New Discovery'],
+        category: 'Nature',
+        rating: 5.0,
+        reviewCount: 1,
+        bestSeason: formData.season || 'All Year',
+        howToReach: ['Pending cartographer verification.'],
+        thingsToDo: ['Explore the untouched beauty.'],
+        tips: ['Tread lightly and leave no trace.'],
+        reviews: []
+      }
+      locations.unshift(newLoc)
       setLoading(false)
       setSubmitted(true)
-    }, 2000)
-  }
-
-  if (submitted) {
-    return (
-      <div className="max-w-2xl mx-auto px-4 py-24 text-center font-serif">
-        <div className="w-24 h-24 bg-[#a44a3f]/10 rounded-full flex items-center justify-center mx-auto mb-8 border-2 border-[#a44a3f]/20">
-          <CheckCircle2 className="w-12 h-12 text-[#a44a3f]" />
-        </div>
-        <h1 className="text-4xl font-bold text-[#3d3d3d] mb-4 italic">Dispatch Received.</h1>
-        <p className="text-lg text-[#5a4a38] mb-10 leading-relaxed italic">
-          Your discovery has been logged in our archives. Our cartographers will verify 
-          the coordinates before this gem is added to the eternal records.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            to="/locations"
-            className="bg-[#3d3d3d] text-[#f2e8cf] px-8 py-4 rounded-none border-b-4 border-black font-bold uppercase tracking-widest text-xs hover:bg-black transition-all shadow-lg"
-          >
-            View Archives
-          </Link>
-          <button
-            onClick={() => setSubmitted(false)}
-            className="border-2 border-[#3d3d3d] text-[#3d3d3d] px-8 py-4 rounded-none font-bold uppercase tracking-widest text-xs hover:bg-[#3d3d3d] hover:text-[#f2e8cf] transition-all"
-          >
-            New Entry
-          </button>
-        </div>
-      </div>
-    )
+      setFormData({ name: '', state: '', description: '', image: '', season: '' })
+    }, 1500)
   }
 
   return (
     <div className="relative min-h-screen bg-[#f2e8cf] py-16 px-4 font-serif">
       {/* Vintage Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none opacity-10 mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/parchment.png')]" />
+      
+      {/* Pop-up Modal for Submission */}
+      {submitted && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
+          <div className="bg-[#fff9eb] border-8 border-double border-[#3d3d3d]/20 p-8 md:p-12 max-w-lg w-full text-center relative shadow-2xl animate-in fade-in zoom-in duration-300">
+            <div className="w-20 h-20 bg-[#a44a3f]/10 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-[#a44a3f]/20">
+              <CheckCircle2 className="w-10 h-10 text-[#a44a3f]" />
+            </div>
+            <h2 className="text-3xl font-bold text-[#3d3d3d] mb-4 italic">Dispatch Received.</h2>
+            <p className="text-base text-[#5a4a38] mb-8 leading-relaxed italic">
+              Your discovery has been logged. The location will be updated by <strong className="text-[#a44a3f] font-black">Mr. Sagar</strong> after the place is thoroughly reviewed.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/locations"
+                className="bg-[#3d3d3d] text-[#f2e8cf] px-6 py-3 rounded-none border-b-4 border-black font-bold uppercase tracking-widest text-xs hover:bg-black transition-all shadow-lg"
+              >
+                View Map
+              </Link>
+              <button
+                onClick={() => setSubmitted(false)}
+                className="border-2 border-[#3d3d3d] text-[#3d3d3d] px-6 py-3 rounded-none font-bold uppercase tracking-widest text-xs hover:bg-[#3d3d3d] hover:text-[#f2e8cf] transition-all"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       
       <div className="max-w-4xl mx-auto relative">
         <div className="text-center mb-12">
@@ -86,6 +116,8 @@ function AddLocationPage() {
                 <input
                   required
                   type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Enter Title..."
                   className="w-full bg-transparent border-none px-0 py-2 text-xl italic text-[#3d3d3d] placeholder-[#3d3d3d]/30 focus:outline-none"
                 />
@@ -98,6 +130,8 @@ function AddLocationPage() {
                 <input
                   required
                   type="text"
+                  value={formData.state}
+                  onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                   placeholder="The State/Region..."
                   className="w-full bg-transparent border-none px-0 py-2 text-xl italic text-[#3d3d3d] placeholder-[#3d3d3d]/30 focus:outline-none"
                 />
@@ -144,6 +178,8 @@ function AddLocationPage() {
                 <textarea
                   required
                   rows={4}
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Begin your account of the discovery here..."
                   className="w-full bg-transparent border-none px-0 py-2 text-base italic text-[#3d3d3d] placeholder-[#3d3d3d]/30 focus:outline-none resize-none"
                 />
@@ -157,6 +193,8 @@ function AddLocationPage() {
                   <input
                     required
                     type="url"
+                    value={formData.image}
+                    onChange={(e) => setFormData({ ...formData, image: e.target.value })}
                     placeholder="Reference Link..."
                     className="w-full bg-transparent border-none px-0 py-2 text-base italic text-[#3d3d3d] placeholder-[#3d3d3d]/30 focus:outline-none"
                   />
@@ -202,6 +240,8 @@ function AddLocationPage() {
                 </label>
                 <input
                   type="text"
+                  value={formData.season}
+                  onChange={(e) => setFormData({ ...formData, season: e.target.value })}
                   placeholder="e.g. Oct - Mar"
                   className="w-full bg-transparent border-none px-0 py-1 text-base italic text-[#3d3d3d] placeholder-[#3d3d3d]/30 focus:outline-none"
                 />
@@ -241,16 +281,6 @@ function AddLocationPage() {
         <div className="mt-12 text-center opacity-60">
           <p className="text-xs font-bold text-[#3d3d3d] uppercase tracking-[0.2em]">
             Seeker of the Unknown? <Link to="/locations" className="underline decoration-dotted decoration-[#a44a3f] hover:text-[#a44a3f]">Consult the existing maps →</Link>
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-        <div className="mt-12 text-center">
-          <p className="text-xs font-bold text-[#a89880] uppercase tracking-widest">
-            Already shared a spot? <Link to="/locations" className="text-[#e07b39] hover:underline">Track your contributions →</Link>
           </p>
         </div>
       </div>
