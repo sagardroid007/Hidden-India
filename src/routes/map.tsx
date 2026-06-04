@@ -104,6 +104,7 @@ function MapPage() {
 
         {/* Interactive Embed */}
         <iframe
+          key={active.id}
           width="100%"
           height="100%"
           frameBorder="0"
