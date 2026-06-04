@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 import { MapPin, Star, Shield, Users, Compass, Sun, Navigation, Camera } from 'lucide-react'
+import { LocationCard } from '@/components/LocationCard'
 import locations from '@/data/locations'
 
 export const Route = createFileRoute('/')({
@@ -149,33 +150,7 @@ function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {featuredLocations.map((loc) => (
-              <Link
-                key={loc.id}
-                to="/locations/$locationId"
-                params={{ locationId: loc.id }}
-                className="group block bg-[#faf6f0] rounded-2xl overflow-hidden border border-[#e8ddd0] hover:shadow-xl transition-shadow"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={loc.image}
-                    alt={loc.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-1 text-[#7a6050] text-sm mb-2">
-                    <MapPin className="w-3 h-3" />
-                    {loc.name}, {loc.state}
-                  </div>
-                  <p className="text-sm text-[#5a4030] line-clamp-2 leading-relaxed">
-                    {loc.shortDescription}
-                  </p>
-                  <div className="flex items-center gap-1 mt-3">
-                    <Star className="w-4 h-4 fill-[#e07b39] text-[#e07b39]" />
-                    <span className="text-sm font-semibold text-[#2d2010]">{loc.rating}</span>
-                  </div>
-                </div>
-              </Link>
+              <LocationCard key={loc.id} location={loc} />
             ))}
           </div>
 
@@ -199,7 +174,7 @@ function HomePage() {
             location and join the community of independent explorers.
           </p>
           <Link
-            to="/locations"
+            to="/add-location"
             className="bg-white text-[#e07b39] font-bold px-8 py-4 rounded-full text-lg hover:bg-[#fde8d4] transition-colors inline-block"
           >
             + Add a Hidden Location

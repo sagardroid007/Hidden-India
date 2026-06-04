@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
-import { MapPin, Star, Search, Filter } from 'lucide-react'
+import { MapPin, Search, Filter } from 'lucide-react'
+import { LocationCard } from '@/components/LocationCard'
 import locations from '@/data/locations'
 
 export const Route = createFileRoute('/locations/')({
@@ -14,23 +15,6 @@ const STATES = [
 ]
 const SEASONS = ['All Seasons', 'Summer', 'Monsoon', 'Winter', 'Spring']
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map((n) => (
-        <Star
-          key={n}
-          className={`w-3.5 h-3.5 ${
-            n <= Math.round(rating)
-              ? 'fill-[#e07b39] text-[#e07b39]'
-              : 'fill-[#e8ddd0] text-[#e8ddd0]'
-          }`}
-        />
-      ))}
-      <span className="text-xs font-semibold text-[#5a4030] ml-1">{rating}</span>
-    </div>
-  )
-}
 
 function LocationsPage() {
   const [search, setSearch] = useState('')
@@ -66,16 +50,16 @@ function LocationsPage() {
       </div>
 
       {/* Search & Filters */}
-      <div className="bg-white rounded-2xl border border-[#e8ddd0] p-5 mb-8 shadow-sm">
+      <div className="bg-white/40 backdrop-blur-md rounded-3xl border border-white/40 p-6 mb-10 shadow-xl shadow-black/5">
         {/* Search bar */}
-        <div className="relative mb-4">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#a89880]" />
+        <div className="relative mb-6">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#a89880]" />
           <input
             type="text"
             placeholder="Search by name, state, or keyword…"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-3 bg-[#faf6f0] border border-[#e8ddd0] rounded-xl text-sm text-[#2d2010] placeholder-[#a89880] focus:outline-none focus:ring-2 focus:ring-[#e07b39]/30"
+            className="w-full pl-12 pr-5 py-4 bg-white/50 backdrop-blur-sm border border-white/60 rounded-2xl text-base font-medium text-[#2d2010] placeholder-[#a89880] focus:outline-none focus:ring-2 focus:ring-[#e07b39]/30 transition-all shadow-inner"
           />
         </div>
 
@@ -91,10 +75,10 @@ function LocationsPage() {
               <button
                 key={cat}
                 onClick={() => setCategory(cat)}
-                className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
+                className={`text-xs font-bold px-4 py-2 rounded-full border transition-all duration-300 ${
                   category === cat
-                    ? 'bg-[#e07b39] text-white border-[#e07b39]'
-                    : 'bg-white text-[#7a6050] border-[#e8ddd0] hover:border-[#e07b39] hover:text-[#e07b39]'
+                    ? 'bg-[#e07b39] text-white border-[#e07b39] shadow-lg shadow-[#e07b39]/30 scale-105'
+                    : 'bg-white/50 backdrop-blur-sm text-[#7a6050] border-white/60 hover:border-[#e07b39] hover:text-[#e07b39]'
                 }`}
               >
                 {cat}
@@ -106,10 +90,10 @@ function LocationsPage() {
           <select
             value={state}
             onChange={(e) => setState(e.target.value)}
-            className="text-xs font-medium border border-[#e8ddd0] rounded-full px-3 py-1.5 bg-white text-[#7a6050] focus:outline-none focus:ring-2 focus:ring-[#e07b39]/30"
+            className="text-xs font-bold border border-white/60 rounded-full px-4 py-2 bg-white/50 backdrop-blur-sm text-[#7a6050] focus:outline-none focus:ring-2 focus:ring-[#e07b39]/30 transition-all hover:border-[#e07b39]"
           >
             {STATES.map((s) => (
-              <option key={s}>{s}</option>
+              <option key={s} className="bg-white">{s}</option>
             ))}
           </select>
 
@@ -117,10 +101,10 @@ function LocationsPage() {
           <select
             value={season}
             onChange={(e) => setSeason(e.target.value)}
-            className="text-xs font-medium border border-[#e8ddd0] rounded-full px-3 py-1.5 bg-white text-[#7a6050] focus:outline-none focus:ring-2 focus:ring-[#e07b39]/30"
+            className="text-xs font-bold border border-white/60 rounded-full px-4 py-2 bg-white/50 backdrop-blur-sm text-[#7a6050] focus:outline-none focus:ring-2 focus:ring-[#e07b39]/30 transition-all hover:border-[#e07b39]"
           >
             {SEASONS.map((s) => (
-              <option key={s}>{s}</option>
+              <option key={s} className="bg-white">{s}</option>
             ))}
           </select>
 
@@ -155,63 +139,7 @@ function LocationsPage() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((loc) => (
-            <Link
-              key={loc.id}
-              to="/locations/$locationId"
-              params={{ locationId: loc.id }}
-              className="group bg-white rounded-2xl overflow-hidden border border-[#e8ddd0] hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden relative">
-                <img
-                  src={loc.image}
-                  alt={loc.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Category badge */}
-                <span className="absolute top-3 left-3 bg-[#1a2e1a]/80 text-[#f5efe0] text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
-                  {loc.category}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <h3 className="text-lg font-bold text-[#2d2010] leading-tight">
-                    {loc.name}
-                  </h3>
-                </div>
-
-                <div className="flex items-center gap-1 text-[#7a6050] text-xs mb-3">
-                  <MapPin className="w-3 h-3 flex-shrink-0" />
-                  <span>{loc.state} · {loc.region}</span>
-                </div>
-
-                <p className="text-sm text-[#5a4030] leading-relaxed line-clamp-2 mb-4">
-                  {loc.shortDescription}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {loc.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-[#f5efe0] text-[#7a6050] text-xs px-2 py-0.5 rounded-full border border-[#e8ddd0]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Footer row */}
-                <div className="flex items-center justify-between pt-3 border-t border-[#f0e8de]">
-                  <StarRating rating={loc.rating} />
-                  <span className="text-xs text-[#a89880]">
-                    Best: {loc.bestSeason.split(',')[0]}
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <LocationCard key={loc.id} location={loc} />
           ))}
         </div>
       )}
