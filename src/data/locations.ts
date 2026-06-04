@@ -531,6 +531,223 @@ const locations: Location[] = [
       },
     ],
   },
+  {
+    id: 'chitkul-himachal',
+    name: 'Chitkul',
+    state: 'Himachal Pradesh',
+    region: 'North India',
+    image: 'https://picsum.photos/seed/chitkul/800/600',
+    heroImage: 'https://picsum.photos/seed/chitkul-hero/1400/700',
+    shortDescription:
+      'The last inhabited village near the Indo-China border, known for its pristine beauty, wooden houses, and the crystal clear Baspa river.',
+    fullDescription:
+      'Chitkul is a small, picturesque village in the Kinnaur district of Himachal Pradesh. Situated at an altitude of 3,450 meters, it is the last inhabited village on the old Indo-Tibetan trade route and the last point in India where one can travel without a permit. The village is surrounded by the majestic snow-capped peaks of the Himalayas and the crystal-clear Baspa River flows gently alongside it. Chitkul is famous for its slate-roofed houses, Buddhist monuments, and the serene Mathi Temple. It offers breathtaking views, pristine air, and a tranquil environment away from the hustle of city life. The journey to Chitkul through the Sangla Valley is as enchanting as the destination itself.',
+    tags: ['Nature', 'Village', 'Himalaya', 'Border'],
+    category: 'Nature',
+    rating: 4.8,
+    reviewCount: 156,
+    bestSeason: 'May–October',
+    howToReach: [
+      'Nearest airport: Shimla (267 km)',
+      'Nearest railway: Shimla (258 km)',
+      'Drive from Shimla via NH5 and Baspa valley road',
+      'HRTC buses run from Shimla and Reckong Peo to Sangla/Chitkul'
+    ],
+    thingsToDo: [
+      'Visit the ancient Mathi Temple',
+      'Walk along the banks of the Baspa River',
+      'Trek to nearby viewpoints for Himalayan vistas',
+      'Experience the unique local Kinnauri culture and architecture'
+    ],
+    tips: [
+      'Carry heavy woolens as it gets very cold at night, even in summer',
+      'Only BSNL and Jio networks might work here, expect to be offline',
+      'ATMs are scarce, carry enough cash from Sangla or Reckong Peo',
+      'The road from Sangla to Chitkul can be tricky and narrow'
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: 'Neha Verma',
+        rating: 5,
+        text: 'A mesmerizing place. Sitting by the Baspa river and watching the snow peaks was the highlight of our trip. Truly feels like the edge of the world.',
+        date: '2024-06-15',
+      }
+    ],
+  },
+  {
+    id: 'munsiyari-uttarakhand',
+    name: 'Munsiyari',
+    state: 'Uttarakhand',
+    region: 'North India',
+    image: 'https://picsum.photos/seed/munsiyari/800/600',
+    heroImage: 'https://picsum.photos/seed/munsiyari-hero/1400/700',
+    shortDescription:
+      'A picturesque hamlet often called "Little Kashmir", offering stunning up-close views of the Panchachuli peaks and a base for thrilling Himalayan treks.',
+    fullDescription:
+      'Perched at an altitude of 2,298 meters in the Pithoragarh district of Uttarakhand, Munsiyari is a fast-growing but still relatively offbeat destination. The name literally translates to "a place with snow". It offers breathtaking, up-close views of the magnificent Panchachuli peaks, a group of five snow-capped Himalayan peaks. Munsiyari serves as the base camp for several prominent treks, including the Milam, Ralam, and Namik glaciers. Surrounded by dense forests of pine, deodar, and rhododendron, the region is rich in flora and fauna, making it a paradise for nature lovers, bird watchers, and adventure enthusiasts. The serene atmosphere, untouched beauty, and crisp mountain air make Munsiyari a perfect retreat for those seeking tranquility away from commercial hill stations.',
+    tags: ['Nature', 'Trekking', 'Himalaya', 'Snow'],
+    category: 'Nature',
+    rating: 4.7,
+    reviewCount: 245,
+    bestSeason: 'March–June, September–October',
+    howToReach: [
+      'Nearest airport: Pantnagar (249 km)',
+      'Nearest railway station: Kathgodam (278 km)',
+      'Buses and shared taxis available from Haldwani, Almora, and Pithoragarh',
+      'Self-drive through the Kumaon hills offers spectacular scenery'
+    ],
+    thingsToDo: [
+      'Trek to Khaliya Top for an even better view of the Himalayas',
+      'Visit the spectacular Birthi Falls on the way',
+      'Explore the Tribal Heritage Museum showcasing Bhotia culture',
+      'Enjoy unhindered sunrise views over the Panchachuli peaks'
+    ],
+    tips: [
+      'The drive from Kathgodam takes about 10-12 hours, plan for a stopover at Chaukori or Almora',
+      'Winters (Dec-Feb) see heavy snowfall and extreme cold',
+      'Carry essential medicines as medical facilities are basic',
+      'Book accommodation in advance during the peak trekking season'
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: 'Rajat Sharma',
+        rating: 5,
+        text: 'The view of Panchachuli from Munsiyari is unparalleled. The Khaliya Top trek was tiring but totally worth it. Much better than going to Nainital or Mussoorie.',
+        date: '2024-10-05',
+      }
+    ],
+  },
+  {
+    id: 'barot-valley-himachal',
+    name: 'Barot Valley',
+    state: 'Himachal Pradesh',
+    region: 'North India',
+    image: 'https://picsum.photos/seed/barot/800/600',
+    heroImage: 'https://picsum.photos/seed/barot-hero/1400/700',
+    shortDescription:
+      'A hidden gem in the Mandi district, originally built for a hydel project, now a peaceful retreat known for trout fishing and the Uhl river.',
+    fullDescription:
+      'Barot Valley, located in the Mandi district of Himachal Pradesh, is an offbeat and relatively unexplored destination. Originally developed in the 1920s for the Shanan Hydel Project, it has gradually become a haven for backpackers and nature lovers. The Uhl River, surrounded by thick Deodar forests, flows through the valley, offering excellent opportunities for trout fishing. The valley also serves as the gateway to the Nargu Wildlife Sanctuary, home to the Himalayan black bear, monal, and ghoral. Barot remains untouched by mass tourism, providing a quiet, rustic charm with its old-world infrastructure, including an old trolley track. It is an ideal spot for camping, angling, and experiencing the slow-paced mountain life.',
+    tags: ['Nature', 'Camping', 'River', 'Offbeat'],
+    category: 'Nature',
+    rating: 4.6,
+    reviewCount: 92,
+    bestSeason: 'April–June, September–November',
+    howToReach: [
+      'Nearest airport: Kangra Airport, Gaggal (110 km)',
+      'Nearest railway: Jogindernagar (Narrow gauge, 40 km) or Pathankot (Broad gauge, 180 km)',
+      'Drive via Mandi or Palampur to Ghatasani, then take the road to Barot (25 km)'
+    ],
+    thingsToDo: [
+      'Trout fishing in the Uhl River (needs a permit from the local trout farm)',
+      'Camp alongside the river under the starry night',
+      'Trek through the Nargu Wildlife Sanctuary',
+      'Visit the Shanan Hydel Project reservoir and the old trolley track'
+    ],
+    tips: [
+      'Carry mosquito repellent if camping near the river',
+      'Accommodation options are mostly basic guesthouses and homestays',
+      'It can rain unpredictably, carry an umbrella or raincoat',
+      'Fish lovers should definitely try the local trout dishes'
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: 'Sushant Patil',
+        rating: 4,
+        text: 'A very peaceful and laid-back place. We camped right next to the Uhl river. Did some trekking and enjoyed the fresh trout. Highly recommended for a quiet weekend.',
+        date: '2024-05-12',
+      }
+    ],
+  },
+  {
+    id: 'khirsu-uttarakhand',
+    name: 'Khirsu',
+    state: 'Uttarakhand',
+    region: 'North India',
+    image: 'https://picsum.photos/seed/khirsu/800/600',
+    heroImage: 'https://picsum.photos/seed/khirsu-hero/1400/700',
+    shortDescription:
+      'A tranquil, unspoiled hill station in the Pauri Garhwal region offering an uninterrupted 300 km wide panoramic view of the Himalayas.',
+    fullDescription:
+      'Situated at an altitude of 1,700 meters in the Pauri Garhwal district, Khirsu is a pristine and secluded hill station that offers a spectacular 300 km wide panoramic view of the majestic Himalayan range, including peaks like Trishul, Nanda Devi, and Nandakot. Shaded by thick forests of pine, oak, and deodar, Khirsu is completely free from the pollution and noise of urban life. The pathways are covered with fallen leaves, creating a soft crunch underfoot, and the air carries the sweet scent of the forest. It is a place where you go simply to unwind, take long walks through apple orchards, and soak in the silence and natural beauty. Unlike other crowded hill stations in Uttarakhand, Khirsu offers a rare sense of isolation and peace.',
+    tags: ['Nature', 'Relaxation', 'Mountain', 'Forest'],
+    category: 'Nature',
+    rating: 4.5,
+    reviewCount: 65,
+    bestSeason: 'March–June, September–November',
+    howToReach: [
+      'Nearest airport: Jolly Grant, Dehradun (145 km)',
+      'Nearest railway: Kotdwar (115 km) or Rishikesh (132 km)',
+      'From Pauri, Khirsu is just 19 km away by taxi or local bus'
+    ],
+    thingsToDo: [
+      'Enjoy the panoramic 300 km view of the Himalayas',
+      'Walk through the dense oak and deodar forests and apple orchards',
+      'Visit the ancient Ghandiyal Devta temple nearby',
+      'Bird watching and nature photography'
+    ],
+    tips: [
+      'Do not expect luxury resorts, stay options are limited to the GMVN guest house and a few homestays',
+      'Bring your own snacks and special requirements, as shops are minimal',
+      'The weather can be quite chilly even in summer, so pack accordingly',
+      'Perfect place for a digital detox'
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: 'Anita Roy',
+        rating: 5,
+        text: 'The view of the Himalayas from the GMVN guest house is simply outstanding. Woke up to a clear sky and the entire range was visible. So peaceful.',
+        date: '2024-03-20',
+      }
+    ],
+  },
+  {
+    id: 'sissu-himachal',
+    name: 'Sissu',
+    state: 'Himachal Pradesh',
+    region: 'North India',
+    image: 'https://picsum.photos/seed/sissu/800/600',
+    heroImage: 'https://picsum.photos/seed/sissu-hero/1400/700',
+    shortDescription:
+      'A stunning village in Lahaul Valley set along the Chandra River, famous for the magnificent Sissu Waterfall and golden autumn leaves.',
+    fullDescription:
+      'Sissu, also known as Khagling, is a gorgeous village situated on the right bank of the Chandra River in the Lahaul Valley of Himachal Pradesh. Since the opening of the Atal Tunnel, Sissu has become easily accessible from Manali, making it a popular yet pristine getaway. The centerpiece of the village is the majestic Sissu Waterfall, which cascades down from a massive height on the opposite side of the river. The landscape is dotted with willow and poplar trees, which turn brilliantly golden during the autumn months, offering a surreal, painterly view. During winter, the entire valley transforms into a white wonderland covered in deep snow. Sissu is an excellent base for exploring the deeper parts of Lahaul and Spiti.',
+    tags: ['Nature', 'Waterfall', 'Valley', 'Snow'],
+    category: 'Nature',
+    rating: 4.8,
+    reviewCount: 310,
+    bestSeason: 'March–June, September–November',
+    howToReach: [
+      'Nearest airport: Bhuntar Airport, Kullu (90 km from Manali)',
+      'From Manali: Just 40 km away via the Atal Tunnel (approx. 1 hour drive)',
+      'Buses and taxis frequently travel from Manali to Keylong passing through Sissu'
+    ],
+    thingsToDo: [
+      'Hike down to the banks of the Chandra River and view the breathtaking Sissu Waterfall',
+      'Visit the ancient Raja Ghepan Temple',
+      'Camp alongside the river',
+      'Experience the spectacular golden autumn colors in October'
+    ],
+    tips: [
+      'Carry warm, windproof clothing even in summer as the valley is quite windy',
+      'The Atal Tunnel can experience heavy traffic during peak tourist seasons; start early',
+      'October is strictly the best time to see the golden willow trees',
+      'Try the authentic local Lahauli cuisine at the roadside dhabas'
+    ],
+    reviews: [
+      {
+        id: 1,
+        name: 'Vikram Thakur',
+        rating: 5,
+        text: 'The drive through the Atal Tunnel and suddenly arriving in Sissu feels magical. The waterfall is huge and the river banks are perfect for a picnic.',
+        date: '2024-05-18',
+      }
+    ],
+  },
 ]
 
 export default locations
