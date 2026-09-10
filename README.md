@@ -23,7 +23,7 @@
 
 <h2>🚀 Demo</h2>
 
-[https://nimble-haupia-84438c.netlify.app/locations](https://nimble-haupia-84438c.netlify.app/locations)
+https://hidden-india.netlify.app/
 
   
   
